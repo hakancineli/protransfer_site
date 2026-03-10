@@ -24,6 +24,23 @@ const amenityIcons = {
 // Global contact phone to display on all hotel detail pages
 const GLOBAL_CONTACT_PHONE = '+90 554 581 20 34'
 
+export async function generateMetadata({ params }: { params: Promise<{ id: string; locale: string }> }) {
+  const { id } = await params;
+  const hotel = hotelsData[id as unknown as keyof typeof hotelsData];
+
+  if (!hotel) return { title: 'Hotel Not Found' };
+
+  return {
+    title: `${hotel.name} - Luxury Hotel in ${hotel.location} | ProTransfer`,
+    description: hotel.description,
+    openGraph: {
+      title: hotel.name,
+      description: hotel.description,
+      images: [hotel.image],
+    },
+  };
+}
+
 export default async function HotelDetailPage({ params }: { params: Promise<{ id: string; locale: string }> }) {
   const { id, locale } = await params
   const t = await getTranslations({ locale })

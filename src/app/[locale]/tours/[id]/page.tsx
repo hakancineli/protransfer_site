@@ -1,10 +1,24 @@
-'use client'
-
 import { MapPin, Star, Calendar, Users, Wifi, Car, Coffee, Dumbbell, Check, Phone, Mail, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { useParams } from 'next/navigation'
 import React from 'react'
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string; locale: string }> }) {
+  const { id } = await params;
+  const tour = toursData[id as unknown as keyof typeof toursData];
+
+  if (!tour) return { title: 'Tour Not Found' };
+
+  return {
+    title: `${tour.title} - ${tour.location} | ProTransfer Tours`,
+    description: tour.description,
+    openGraph: {
+      title: tour.title,
+      description: tour.description,
+      images: [tour.image],
+    },
+  };
+}
 
 // Tour data - in a real app, this would come from an API or database
 const toursData = {
