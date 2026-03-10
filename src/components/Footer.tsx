@@ -91,13 +91,13 @@ export default function Footer() {
             {/* Brand Section */}
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-2 mb-6">
-                <div className="w-56 h-48 flex items-center justify-center">
-                  <div className="w-52 h-40 flex items-center justify-center">
+                <div className="w-64 h-48 flex items-center justify-center">
+                  <div className="w-60 h-40 flex items-center justify-center">
                     <Image
                       src="/images/logo.png"
                       alt="ProTransfer Logo"
-                      width={280}
-                      height={180}
+                      width={320}
+                      height={120}
                       className="object-contain"
                       unoptimized
                     />

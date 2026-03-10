@@ -96,7 +96,7 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="relative h-14 w-40 md:h-20 md:w-56">
+          <Link href="/" className="relative h-14 w-56 md:h-16 md:w-64">
             <Image
               src="/images/logo.png"
               alt="Pro Transfer"
