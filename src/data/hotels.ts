@@ -58,7 +58,7 @@ export const hotelsData = {
       }
     ],
     contact: {
-      phone: '+90 506 641 17 83',
+      phone: '+90 554 581 20 34',
       email: 'info@fortytravel.com',
       address: 'Sıraselviler Cad. No:58, 34367 Beşiktaş, Istanbul, Turkey'
     }
@@ -120,7 +120,7 @@ export const hotelsData = {
       }
     ],
     contact: {
-      phone: '+90 506 641 17 83',
+      phone: '+90 554 581 20 34',
       email: 'info@fortytravel.com',
       address: 'Bayıldım Cad. No:2, 34357 Beşiktaş, Istanbul, Turkey'
     }
@@ -152,7 +152,7 @@ export const hotelsData = {
       { name: 'Standard Room', size: '35 sqm', maxGuests: 2, price: 420, features: ['Queen bed', 'City view', 'Marble bathroom'] },
       { name: 'Deluxe Room', size: '45 sqm', maxGuests: 2, price: 520, features: ['King bed', 'Bosphorus view', 'Marble bathroom', 'Work desk'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Gümüşsuyu Mah. Balmumcu Sk. No:1, 34349 Beşiktaş, Istanbul, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Gümüşsuyu Mah. Balmumcu Sk. No:1, 34349 Beşiktaş, Istanbul, Turkey' }
   },
   4: {
     id: 4,
@@ -182,7 +182,7 @@ export const hotelsData = {
       { name: 'Standard Room', size: '28 sqm', maxGuests: 2, price: 120, features: ['Queen bed'] },
       { name: 'Deluxe Room', size: '36 sqm', maxGuests: 3, price: 160, features: ['King bed'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Piyalepaşa Blvd. No:1, 34445 Beyoğlu, Istanbul, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Piyalepaşa Blvd. No:1, 34445 Beyoğlu, Istanbul, Turkey' }
   },
   5: {
     id: 5,
@@ -211,7 +211,7 @@ export const hotelsData = {
       { name: 'Standard Room', size: '32 sqm', maxGuests: 2, price: 150, features: ['Queen bed'] },
       { name: 'Deluxe Room', size: '42 sqm', maxGuests: 3, price: 190, features: ['King bed'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Taskisla Cad. No:1, 34433 Taksim, Istanbul, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Taskisla Cad. No:1, 34433 Taksim, Istanbul, Turkey' }
   },
   6: {
     id: 6,
@@ -240,7 +240,7 @@ export const hotelsData = {
       { name: 'Standard Room', size: '30 sqm', maxGuests: 2, price: 140, features: ['Queen bed'] },
       { name: 'Deluxe Room', size: '40 sqm', maxGuests: 3, price: 180, features: ['King bed'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Çırağan Cad. No:1, 34349 Beşiktaş, Istanbul, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Çırağan Cad. No:1, 34349 Beşiktaş, Istanbul, Turkey' }
   },
   7: {
     id: 7,
@@ -269,7 +269,7 @@ export const hotelsData = {
       { name: 'Standard Room', size: '28 sqm', maxGuests: 2, price: 110, features: ['Queen bed'] },
       { name: 'Deluxe Room', size: '36 sqm', maxGuests: 3, price: 150, features: ['King bed'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Abide-i Hürriyet Cad. No:175, 34381 Şişli, Istanbul, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Abide-i Hürriyet Cad. No:175, 34381 Şişli, Istanbul, Turkey' }
   },
   8: {
     id: 8,
@@ -298,7 +298,7 @@ export const hotelsData = {
       { name: 'Standard Room', size: '28 sqm', maxGuests: 2, price: 120, features: ['Queen bed'] },
       { name: 'Deluxe Room', size: '36 sqm', maxGuests: 3, price: 160, features: ['King bed'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Süleyman Seba Cad. No:22, 34357 Beşiktaş, Istanbul, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Süleyman Seba Cad. No:22, 34357 Beşiktaş, Istanbul, Turkey' }
   },
   9: {
     id: 9,
@@ -327,7 +327,7 @@ export const hotelsData = {
       { name: 'Deluxe Room', size: '40 sqm', maxGuests: 2, price: 180, features: ['King bed'] },
       { name: 'Suite', size: '65 sqm', maxGuests: 3, price: 260, features: ['King bed'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Tevkifhane Sok. No:1, 34400 Sultanahmet, Istanbul, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Tevkifhane Sok. No:1, 34400 Sultanahmet, Istanbul, Turkey' }
   },
   10: {
     id: 10,
@@ -356,7 +356,7 @@ export const hotelsData = {
       { name: 'Deluxe Room', size: '45 sqm', maxGuests: 2, price: 220, features: ['King bed'] },
       { name: 'Suite', size: '70 sqm', maxGuests: 3, price: 320, features: ['King bed'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Çırağan Cad. No:32, 34349 Beşiktaş, Istanbul, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Çırağan Cad. No:32, 34349 Beşiktaş, Istanbul, Turkey' }
   },
   21: {
     id: 21,
@@ -437,7 +437,7 @@ export const hotelsData = {
       { name: 'Deluxe Room', size: '45 sqm', maxGuests: 3, price: 160, features: ['King bed', 'City view'] }
     ],
     contact: {
-      phone: '+90 506 641 17 83',
+      phone: '+90 554 581 20 34',
       email: 'info@fortytravel.com',
       address: 'Maraş Cd. No:1, 61000 Trabzon, Turkey'
     }
@@ -466,7 +466,7 @@ export const hotelsData = {
       { name: 'Deluxe Room', size: '40 sqm', maxGuests: 3, price: 150, features: ['King bed', 'Sea view'] }
     ],
     contact: {
-      phone: '+90 506 641 17 83',
+      phone: '+90 554 581 20 34',
       email: 'info@fortytravel.com',
       address: 'Cumhuriyet Cd. No:95, 61000 Trabzon, Turkey'
     }
@@ -495,7 +495,7 @@ export const hotelsData = {
       { name: 'Executive Room', size: '48 sqm', maxGuests: 3, price: 190, features: ['King bed', 'Sea view'] }
     ],
     contact: {
-      phone: '+90 506 641 17 83',
+      phone: '+90 554 581 20 34',
       email: 'info@fortytravel.com',
       address: 'Trabzon, Turkey'
     }
@@ -529,7 +529,7 @@ export const hotelsData = {
       { name: 'Deluxe Room', size: '40 sqm', maxGuests: 3, price: 150, features: ['King bed'] }
     ],
     contact: {
-      phone: '+90 506 641 17 83',
+      phone: '+90 554 581 20 34',
       email: 'info@fortytravel.com',
       address: 'Uzun Sok. No:45, Trabzon, Turkey'
     }
@@ -563,7 +563,7 @@ export const hotelsData = {
       { name: 'Executive Room', size: '50 sqm', maxGuests: 3, price: 190, features: ['King bed'] }
     ],
     contact: {
-      phone: '+90 506 641 17 83',
+      phone: '+90 554 581 20 34',
       email: 'info@fortytravel.com',
       address: 'Gülbahar Cad. No:123, Trabzon, Turkey'
     }
@@ -596,7 +596,7 @@ export const hotelsData = {
       { name: 'Suite', size: '65 sqm', maxGuests: 3, price: 240, features: ['King bed', 'Sea view'] }
     ],
     contact: {
-      phone: '+90 506 641 17 83',
+      phone: '+90 554 581 20 34',
       email: 'info@fortytravel.com',
       address: 'Yalıncak Cad. No:99, Trabzon, Turkey'
     }
@@ -662,7 +662,7 @@ export const hotelsData = {
       { name: 'Deluxe Room', size: '36 sqm', maxGuests: 3, price: 135, features: ['King bed'] }
     ],
     contact: {
-      phone: '+90 506 641 17 83',
+      phone: '+90 554 581 20 34',
       email: 'info@fortytravel.com',
       address: 'Turgut Özal Cad. No:67, Trabzon, Turkey'
     }
@@ -694,7 +694,7 @@ export const hotelsData = {
       { name: 'Deluxe Room', size: '38 sqm', maxGuests: 3, price: 125, features: ['King bed'] }
     ],
     contact: {
-      phone: '+90 506 641 17 83',
+      phone: '+90 554 581 20 34',
       email: 'info@fortytravel.com',
       address: 'Kalkınma Cad. No:34, Trabzon, Turkey'
     }
@@ -726,7 +726,7 @@ export const hotelsData = {
       { name: 'Deluxe Room', size: '42 sqm', maxGuests: 3, price: 155, features: ['King bed'] }
     ],
     contact: {
-      phone: '+90 506 641 17 83',
+      phone: '+90 554 581 20 34',
       email: 'info@fortytravel.com',
       address: 'Gülsüm Sokak No:12, Trabzon, Turkey'
     }
@@ -759,7 +759,7 @@ export const hotelsData = {
       { name: 'Suite', size: '70 sqm', maxGuests: 3, price: 340, features: ['King bed', 'Sea view'] }
     ],
     contact: {
-      phone: '+90 506 641 17 83',
+      phone: '+90 554 581 20 34',
       email: 'info@fortytravel.com',
       address: 'Belek, 07500 Antalya, Turkey'
     }
@@ -791,7 +791,7 @@ export const hotelsData = {
       { name: 'Deluxe Room', size: '42 sqm', maxGuests: 2, price: 180, features: ['King bed', 'Sea view'] },
       { name: 'Suite', size: '65 sqm', maxGuests: 3, price: 260, features: ['King bed', 'Balcony'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Belek, 07500 Antalya, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Belek, 07500 Antalya, Turkey' }
   },
   25: {
     id: 25,
@@ -936,7 +936,7 @@ export const hotelsData = {
       { name: 'Kingdom Room', size: '40 sqm', maxGuests: 2, price: 185, features: ['Themed decor'] },
       { name: 'Family Suite', size: '60 sqm', maxGuests: 4, price: 255, features: ['Themed two rooms'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Kumköy, 07400 Side, Antalya, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Kumköy, 07400 Side, Antalya, Turkey' }
   },
   30: {
     id: 30,
@@ -995,7 +995,7 @@ export const hotelsData = {
       { name: 'Executive Room', size: '50 sqm', maxGuests: 3, price: 180, features: ['King bed'] }
     ],
     contact: {
-      phone: '+90 506 641 17 83',
+      phone: '+90 554 581 20 34',
       email: 'info@fortytravel.com',
       address: 'Bursa, Turkey'
     }
@@ -1023,7 +1023,7 @@ export const hotelsData = {
       { name: 'Standard Room', size: '28 sqm', maxGuests: 2, price: 95, features: ['Queen bed'] },
       { name: 'Deluxe Room', size: '40 sqm', maxGuests: 3, price: 130, features: ['King bed'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Çekirge Cad. No:67, Bursa, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Çekirge Cad. No:67, Bursa, Turkey' }
   },
   35: {
     id: 35,
@@ -1048,7 +1048,7 @@ export const hotelsData = {
       { name: 'Standard Room', size: '30 sqm', maxGuests: 2, price: 105, features: ['Queen bed'] },
       { name: 'Executive Room', size: '44 sqm', maxGuests: 3, price: 145, features: ['King bed'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Altıparmak Cad. No:89, Bursa, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Altıparmak Cad. No:89, Bursa, Turkey' }
   },
   36: {
     id: 36,
@@ -1073,7 +1073,7 @@ export const hotelsData = {
       { name: 'Superior Room', size: '34 sqm', maxGuests: 2, price: 120, features: ['Queen bed'] },
       { name: 'Deluxe Room', size: '46 sqm', maxGuests: 3, price: 160, features: ['King bed'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Ankara Yolu 8. Km, Bursa, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Ankara Yolu 8. Km, Bursa, Turkey' }
   },
   37: {
     id: 37,
@@ -1098,7 +1098,7 @@ export const hotelsData = {
       { name: 'Standard Room', size: '26 sqm', maxGuests: 2, price: 95, features: ['Queen bed'] },
       { name: 'Deluxe Room', size: '38 sqm', maxGuests: 3, price: 130, features: ['King bed'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Çekirge Cad. No:123, Bursa, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Çekirge Cad. No:123, Bursa, Turkey' }
   },
   38: {
     id: 38,
@@ -1123,7 +1123,7 @@ export const hotelsData = {
       { name: 'Deluxe Room', size: '40 sqm', maxGuests: 2, price: 140, features: ['King bed'] },
       { name: 'Suite', size: '60 sqm', maxGuests: 3, price: 190, features: ['King bed'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Çekirge Cad. No:34, Bursa, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Çekirge Cad. No:34, Bursa, Turkey' }
   },
   39: {
     id: 39,
@@ -1148,7 +1148,7 @@ export const hotelsData = {
       { name: 'Standard Room', size: '30 sqm', maxGuests: 2, price: 100, features: ['Queen bed'] },
       { name: 'Deluxe Room', size: '42 sqm', maxGuests: 3, price: 140, features: ['King bed'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Çekirge Cad. No:1, Bursa, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Çekirge Cad. No:1, Bursa, Turkey' }
   },
   40: {
     id: 40,
@@ -1173,7 +1173,7 @@ export const hotelsData = {
       { name: 'Standard Room', size: '30 sqm', maxGuests: 2, price: 105, features: ['Queen bed'] },
       { name: 'Deluxe Room', size: '42 sqm', maxGuests: 3, price: 145, features: ['King bed'] }
     ],
-    contact: { phone: '+90 506 641 17 83', email: 'info@fortytravel.com', address: 'Ankara Yolu 15. Km, Bursa, Turkey' }
+    contact: { phone: '+90 554 581 20 34', email: 'info@fortytravel.com', address: 'Ankara Yolu 15. Km, Bursa, Turkey' }
   },
   32: {
     id: 32,
@@ -1236,7 +1236,7 @@ export const hotelsData = {
       { name: 'Deluxe Room', size: '42 sqm', maxGuests: 3, price: 150, features: ['King bed'] }
     ],
     contact: {
-      phone: '+90 506 641 17 83',
+      phone: '+90 554 581 20 34',
       email: 'info@fortytravel.com',
       address: 'Bursa, Turkey'
     }

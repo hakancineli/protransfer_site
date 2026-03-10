@@ -22,7 +22,7 @@ const amenityIcons = {
 }
 
 // Global contact phone to display on all hotel detail pages
-const GLOBAL_CONTACT_PHONE = '+90 506 641 17 83'
+const GLOBAL_CONTACT_PHONE = '+90 554 581 20 34'
 
 export default async function HotelDetailPage({ params }: { params: Promise<{ id: string; locale: string }> }) {
   const { id, locale } = await params

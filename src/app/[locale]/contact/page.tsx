@@ -178,7 +178,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                       <h3 className="font-semibold text-lg mb-1">{t('ContactPage.emailTitle')}</h3>
                       <p className="text-gray-600">
                         hakancinelii@gmail.com<br />
-                        support@protransfer.com.tr<br />
+                        hakancinelii@gmail.com<br />
                         hakancinelii@gmail.com
                       </p>
                     </div>

@@ -24,8 +24,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       position: t('AboutPage.teamMember2Pos'),
       image: '/team/mehmet.jpg',
       bio: t('AboutPage.teamMember2Bio'),
-      email: 'mehmet@protransfer.com.tr',
-      phone: '+90 506 641 17 83',
+      email: 'hakancinelii@gmail.com',
+      phone: '+90 554 581 20 34',
       linkedin: 'https://linkedin.com/in/mehmet-ozkan'
     },
   ]
