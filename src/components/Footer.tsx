@@ -1,5 +1,6 @@
 import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
+import Logo from './Logo'
 import {
   Facebook,
   Twitter,
@@ -100,16 +101,9 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
             {/* Brand Section */}
             <div className="lg:col-span-2">
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="w-64 h-48 flex items-center justify-center">
-                  <Image
-                    src="/images/logo.png"
-                    alt="ProTransfer Logo"
-                    width={320}
-                    height={120}
-                    className="object-contain"
-                    unoptimized
-                  />
+              <div className="mb-6">
+                <div className="h-12">
+                  <Logo light={true} />
                 </div>
               </div>
               <p className="text-gray-300 mb-6 leading-relaxed">

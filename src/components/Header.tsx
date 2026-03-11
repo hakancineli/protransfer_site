@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { usePathname, useRouter, Link } from '@/i18n/navigation'
 import { Phone, Mail, Globe, Menu, X, Search, User } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
+import Logo from './Logo'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -96,15 +97,8 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="relative h-14 w-56 md:h-16 md:w-64">
-            <Image
-              src="/images/logo.png"
-              alt="Pro Transfer"
-              fill
-              className="object-contain"
-              priority
-              unoptimized
-            />
+          <Link href="/" className="h-12 md:h-14">
+            <Logo isScrolled={isScrolled} />
           </Link>
 
           {/* Desktop Navigation */}
@@ -143,13 +137,8 @@ export default function Header() {
             onClick={e => e.stopPropagation()}
           >
             <div className="flex justify-between items-center mb-8">
-              <div className="relative h-10 w-28">
-                <Image
-                  src="/images/logo-dark.png"
-                  alt="Pro Transfer"
-                  fill
-                  className="object-contain"
-                />
+              <div className="h-10">
+                <Logo light={false} />
               </div>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
