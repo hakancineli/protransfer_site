@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap');
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -74,12 +74,12 @@ body {
 
 /* Custom components */
 .btn-primary {
-  background-color: #2563eb;
+  background-color: #16a34a;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
-  font-weight: 500;
-  transition: color 0.2s, background-color 0.2s;
+  font-weight: 600;
+  transition: color 0.2s, background-color 0.2s, transform 0.2s;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -89,7 +89,8 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: #1d4ed8;
+  background-color: #15803d;
+  transform: scale(1.02);
 }
 
 .btn-secondary {

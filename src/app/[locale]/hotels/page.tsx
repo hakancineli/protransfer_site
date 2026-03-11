@@ -508,30 +508,35 @@ export default async function HotelsPage({ params }: { params: Promise<{ locale:
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[450px] overflow-hidden bg-gray-900">
+      <section className="relative h-[60vh] md:h-[75vh] min-h-[500px] overflow-hidden bg-gray-900 group/hotels">
         <div className="absolute inset-0">
           <Image
             src="/images/destinations/istanbul.jpg"
-            alt="Turkey Hotels"
+            alt="Luxury Hotels Turkey"
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-[10000ms] ease-linear group-hover/hotels:scale-110"
             priority
+            unoptimized
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent z-20" />
+          <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-gray-900 to-transparent z-20" />
         </div>
-        <div className="relative container mx-auto px-4 h-full flex items-end pb-16">
-          <div className="max-w-3xl text-white">
-            <h1 className="text-4xl md:text-7xl font-bold mb-6 font-serif">
+        <div className="relative z-30 container mx-auto px-4 h-full flex flex-col justify-end pb-20">
+          <div className="max-w-4xl text-white">
+            <span className="inline-block px-4 py-1.5 bg-primary-600/80 backdrop-blur-md border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest mb-6 animate-fade-in">
+              Premium Accommodations
+            </span>
+            <h1 className="text-5xl md:text-8xl font-bold mb-8 font-serif leading-none tracking-tight animate-fade-in">
               {t('title')}
             </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-90 leading-relaxed font-light">
+            <p className="text-xl md:text-3xl mb-10 opacity-90 leading-relaxed font-light max-w-2xl animate-fade-in" style={{ animationDelay: '200ms' }}>
               {t('description')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors">
+            <div className="flex flex-col sm:flex-row gap-6 animate-fade-in" style={{ animationDelay: '300ms' }}>
+              <button className="bg-primary-600 hover:bg-primary-700 text-white px-10 py-4 rounded-full font-bold transition-all hover:scale-105 shadow-2xl">
                 {t('exploreAll')}
               </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors">
+              <button className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-black transition-all hover:scale-105 shadow-2xl">
                 {t('specialOffers')}
               </button>
             </div>
