@@ -12,15 +12,15 @@
         "contact": "Contact"
     },
     "SEO": {
-        "title": "ProTransfer | VIP Transfer, Luxury Hotels & Private Tours in Turkey",
-        "description": "ProTransfer offers premium VIP airport transfers, luxury hotel bookings, and exclusive private tours in Istanbul, Cappadocia, Antalya, and across Turkey. Experience comfort and elegance with our professional team since 2004.",
-        "keywords": "VIP transfer Istanbul, luxury hotels Turkey, private tours Turkey, airport transfer Istanbul, Turkish citizenship by investment, medical tourism Turkey, car rental Istanbul",
-        "ogTitle": "Luxury Tourism & VIP Transfers in Turkey | ProTransfer",
-        "ogDescription": "Premium VIP transfers, luxury hotels, and exclusive private tours. Your trusted travel partner in Turkey sejak 2004."
+        "title": "VIP Transfer Istanbul & Luxury Chauffeur Service Turkey | ProTransfer",
+        "description": "ProTransfer provides premier VIP airport transfers, luxury chauffeur services, and private guided tours in Istanbul, Cappadocia & across Turkey. Professional drivers, premium fleet & personalized travel since 2004.",
+        "keywords": "VIP transfer Istanbul, luxury chauffeur service Turkey, private driver Istanbul, Istanbul airport transfer, luxury hotels Turkey, private tours Istanbul, VIP airport pickup, chauffeured car rental Turkey, Taksim VIP transfer, Sabiha Gokcen VIP transfer",
+        "ogTitle": "Luxury VIP Transfers & Private Chauffeur in Turkey | ProTransfer",
+        "ogDescription": "Experience Turkey's finest VIP transport and private tour services. Reliable, professional chauffeur service in Istanbul and beyond since 2004."
     },
     "Hero": {
-        "title": "Discover Turkey with Pro Transfer",
-        "subtitle": "Experience luxury travel, premium hotels and exclusive tours in Turkey's most beautiful destinations",
+        "title": "Premium VIP Transfers & Luxury Tours in Turkey",
+        "subtitle": "Trusted travel partner for Europe & Middle East travelers since 2004. Exclusive VIP airport transfers, luxury hotels and professional chauffeur services.",
         "searchPlaceholder": "Where to?",
         "datePlaceholder": "Date",
         "guests": "{count} Guests",
@@ -35,10 +35,10 @@
         "reviews": "reviews"
     },
     "HomePage": {
-        "servicesTitle": "Premium Services",
-        "servicesSubtitle": "Everything you need for an unforgettable journey",
-        "destinationsTitle": "Popular Destinations",
-        "destinationsSubtitle": "Discover Turkey's most iconic cities and hidden gems",
+        "servicesTitle": "Elite Travel Services",
+        "servicesSubtitle": "Full-service VIP travel management for individual and family journeys across Turkey",
+        "destinationsTitle": "Premium Destinations",
+        "destinationsSubtitle": "Expertly guided tours in Istanbul, Cappadocia, Bodrum and Antalya",
         "hotelsTitle": "Luxury Hotels",
         "hotelsSubtitle": "Unforgettable accommodation experiences in Turkey's most exclusive hotels",
         "toursTitle": "Exclusive Tours",
