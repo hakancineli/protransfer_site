@@ -61,22 +61,32 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       {/* Newsletter Section */}
-      <div className="bg-primary-600 py-12">
-        <div className="max-w-7xl mx-auto px-4">
+      <div className="relative py-16 overflow-hidden bg-gray-900 border-b border-white/10">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/destinations/istanbul.jpg"
+            alt="Newsletter Background"
+            fill
+            className="object-cover opacity-40"
+            unoptimized
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-2xl font-bold mb-4">
+            <h3 className="text-3xl font-bold mb-4 font-serif">
               Get Exclusive Travel Deals & Inspiration
             </h3>
-            <p className="mb-6 opacity-90">
-              Subscribe to our newsletter and be the first to know about special offers and travel tips
+            <p className="text-lg mb-8 opacity-90 font-light leading-relaxed">
+              Subscribe to our newsletter and be the first to know about special offers and luxury travel tips across Turkey
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email address"
-                className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                className="flex-1 px-6 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all"
               />
-              <button className="bg-white text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              <button className="bg-primary-600 text-white px-10 py-4 rounded-full font-bold hover:bg-primary-700 transition-all hover:scale-105 shadow-xl">
                 Subscribe
               </button>
             </div>
@@ -92,18 +102,15 @@ export default function Footer() {
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-2 mb-6">
                 <div className="w-64 h-48 flex items-center justify-center">
-                  <div className="w-60 h-40 flex items-center justify-center">
-                    <Image
-                      src="/images/logo.png"
-                      alt="ProTransfer Logo"
-                      width={320}
-                      height={120}
-                      className="object-contain"
-                      unoptimized
-                    />
-                  </div>
+                  <Image
+                    src="/images/logo.png"
+                    alt="ProTransfer Logo"
+                    width={320}
+                    height={120}
+                    className="object-contain"
+                    unoptimized
+                  />
                 </div>
-                <span className="text-2xl font-bold font-serif"></span>
               </div>
               <p className="text-gray-300 mb-6 leading-relaxed">
                 Your trusted partner for luxury travel experiences in Turkey.

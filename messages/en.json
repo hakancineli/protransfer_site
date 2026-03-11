@@ -113,6 +113,27 @@
         "similarHotels": "Similar Hotels",
         "similarHotelsComingSoon": "Similar hotels coming soon..."
     },
+    "HotelsPage": {
+        "title": "Luxury Hotels in Turkey",
+        "description": "Discover exceptional accommodation and world-class hospitality in Turkey's most beautiful cities.",
+        "exploreAll": "Explore All Hotels",
+        "specialOffers": "Special Offers",
+        "popularDestinations": "Popular Destinations",
+        "popularDestinationsDesc": "Choose from our handpicked luxury hotels in Turkey's most iconic locations.",
+        "hotelsCount": "Hotels",
+        "featuredHotels": "Featured Luxury Hotels",
+        "featuredHotelsDesc": "Handpicked premium hotels offering exceptional comfort and service.",
+        "awardWinningService": "Award-Winning Service",
+        "awardWinningServiceDesc": "Experience hospitality recognized by global travel standards.",
+        "strategicLocations": "Strategic Locations",
+        "strategicLocationsDesc": "Our hotels are situated in prime areas for both business and leisure.",
+        "premiumAmenities": "Premium Amenities",
+        "premiumAmenitiesDesc": "Enjoy world-class spas, fine dining, and modern fitness facilities.",
+        "ctaTitle": "Find Your Perfect Stay",
+        "ctaDescription": "Let our travel experts find the ideal hotel for your Turkish journey.",
+        "bookNow": "Book Now",
+        "contactUs": "Contact Us"
+    },
     "FlightsPage": {
         "heroTitle": "Flight Booking",
         "heroSubtitle": "Book domestic and international flights with the best airlines",

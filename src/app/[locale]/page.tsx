@@ -36,19 +36,19 @@ const DestinationCard = ({ destination, tick, t }: { destination: Destination, t
     }, [images.length])
 
     return (
-        <Link href={destination.link || '#'} className="card group cursor-pointer">
-            <div className="relative h-[28rem] overflow-hidden">
+        <Link href={destination.link || '#'} className="card group cursor-pointer overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+            <div className="relative h-[28rem] overflow-hidden bg-gray-900">
                 {images.map((img, i) => (
                     <div
                         key={img}
-                        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                        className={`absolute inset-0 transition-all duration-[2000ms] ease-out ${i === idx ? 'opacity-100 scale-100 translate-z-0' : 'opacity-0 scale-110'
                             }`}
                     >
                         <Image
                             src={img}
                             alt={destination.name}
                             fill
-                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            className="object-cover"
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                             onError={i === idx ? handleError : undefined}
                             priority={i === 0}
@@ -56,21 +56,28 @@ const DestinationCard = ({ destination, tick, t }: { destination: Destination, t
                         />
                     </div>
                 ))}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-20" />
-                <div className="absolute bottom-4 left-4 text-white z-20">
-                    <h3 className="text-2xl font-bold mb-2">{destination.name}</h3>
-                    <div className="flex items-center gap-4 text-sm">
-                        <div className="flex items-center gap-1">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-20" />
+                <div className="absolute bottom-6 left-6 text-white z-20 transition-transform duration-500 group-hover:-translate-y-2">
+                    <h3 className="text-3xl font-bold mb-2 font-serif tracking-tight">{destination.name}</h3>
+                    <div className="flex items-center gap-4 text-sm font-medium">
+                        <div className="flex items-center gap-1 bg-white/20 backdrop-blur-md px-2 py-0.5 rounded-lg border border-white/10">
                             <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                             <span>{destination.rating}</span>
                         </div>
-                        <span>{destination.tours} {t('HomePage.hotels')}</span>
+                        <span className="opacity-80 uppercase tracking-widest text-[10px] bg-primary-600/30 backdrop-blur-md px-2 py-0.5 rounded-lg border border-white/10">
+                            {destination.tours} {t('HomePage.hotels')}
+                        </span>
                     </div>
                 </div>
                 {images.length > 1 && (
-                    <div className="absolute right-3 bottom-3 flex gap-1 z-20">
+                    <div className="absolute right-4 bottom-2 left-4 h-1 flex gap-1.5 z-20 opacity-60">
                         {images.map((_, i) => (
-                            <span key={i} className={`w-2 h-2 rounded-full transition-colors duration-300 ${i === idx ? 'bg-white' : 'bg-white/50'}`} />
+                            <div key={i} className="flex-1 h-full bg-white/20 rounded-full overflow-hidden">
+                                <div
+                                    className={`h-full bg-white transition-all duration-500 ${i === idx ? 'w-full' : 'w-0'
+                                        }`}
+                                />
+                            </div>
                         ))}
                     </div>
                 )}
@@ -102,25 +109,27 @@ export default function HomePage() {
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden">
+            <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gray-900 group/hero">
                 <div className="absolute inset-0 z-0">
                     <Image
                         src="/images/hero-bg.jpg"
-                        alt="Luxury Travel Background"
+                        alt="Luxury Travel Turkey Portfolio"
                         fill
-                        className="object-cover"
+                        className="object-cover transition-transform duration-[10000ms] ease-linear group-hover/hero:scale-110"
                         priority
+                        unoptimized
                     />
-                    <div className="absolute inset-0 bg-black/40" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent z-20" />
+                    <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-gray-900 to-transparent z-20" />
                 </div>
 
-                <div className="relative z-10 text-center text-white px-4 animate-fade-in">
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 font-serif">
+                <div className="relative z-30 text-center text-white px-4">
+                    <span className="inline-block px-4 py-1.5 bg-primary-600/80 backdrop-blur-md border border-white/10 rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-8 animate-fade-in">
+                        {t('Hero.subtitle')}
+                    </span>
+                    <h1 className="text-5xl md:text-9xl font-bold mb-10 font-serif leading-[0.9] tracking-tight animate-fade-in" style={{ animationDelay: '100ms' }}>
                         {t('Hero.title')}
                     </h1>
-                    <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-                        {t('Hero.subtitle')}
-                    </p>
 
                     {/* Search Bar */}
                     <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 max-w-4xl mx-auto shadow-2xl">
@@ -176,31 +185,33 @@ export default function HomePage() {
                     </div>
 
                     {/* Services Carousel */}
-                    <div className="relative">
+                    <div className="relative group/carousel">
                         <div className="overflow-hidden">
                             <div
-                                className="flex transition-transform duration-500 ease-in-out"
-                                style={{ transform: `translateX(-${currentSlide * 256}px)` }}
+                                className="flex transition-transform duration-1000 ease-[cubic-bezier(0.2,1,0.3,1)]"
+                                style={{ transform: `translateX(-${currentSlide * (256 + 24)}px)` }} // accounting for gap
                             >
                                 {[...services, ...services].map((service, index) => (
-                                    <div key={`${service.title}-${index}`} className="flex-shrink-0 w-64">
-                                        <div className="card group cursor-pointer h-full">
-                                            <div className="p-6">
-                                                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary-200 transition-colors">
-                                                    <service.icon className="w-8 h-8 text-primary-600" />
+                                    <div key={`${service.title}-${index}`} className="flex-shrink-0 w-64 mr-6">
+                                        <div className="card group cursor-pointer h-full border border-gray-100 hover:border-primary-200 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 bg-white">
+                                            <div className="p-8">
+                                                <div className="w-20 h-20 bg-primary-100 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary-600 group-hover:rotate-6 transition-all duration-500">
+                                                    <service.icon className="w-10 h-10 text-primary-600 group-hover:text-white transition-colors" />
                                                 </div>
-                                                <h3 className="text-xl font-semibold mb-4">
+                                                <h3 className="text-2xl font-bold mb-4 text-gray-900 group-hover:text-primary-600 transition-colors leading-tight">
                                                     {service.title}
                                                 </h3>
-                                                <p className="text-gray-600 mb-6">
+                                                <p className="text-gray-600 mb-8 leading-relaxed font-light">
                                                     {service.description}
                                                 </p>
                                                 <Link
                                                     href={service.link}
-                                                    className="inline-flex items-center text-primary-600 font-medium hover:text-primary-700 transition-colors"
+                                                    className="inline-flex items-center text-primary-600 font-bold group-hover:gap-3 transition-all"
                                                 >
-                                                    {t('Common.explore')}
-                                                    <ChevronRight className="w-4 h-4 ml-1" />
+                                                    <span className="border-b-2 border-transparent group-hover:border-primary-600 pb-0.5">
+                                                        {t('Common.explore')}
+                                                    </span>
+                                                    <ChevronRight className="w-5 h-5 ml-1" />
                                                 </Link>
                                             </div>
                                         </div>
@@ -210,28 +221,30 @@ export default function HomePage() {
                         </div>
 
                         {/* Navigation Buttons */}
-                        <button
-                            onClick={() => setCurrentSlide((prev) => (prev === 0 ? services.length - 1 : prev - 1))}
-                            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors z-10"
-                            aria-label="Previous slide"
-                        >
-                            <ChevronLeft className="w-6 h-6 text-gray-600" />
-                        </button>
-                        <button
-                            onClick={() => setCurrentSlide((prev) => (prev === services.length - 1 ? 0 : prev + 1))}
-                            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors z-10"
-                            aria-label="Next slide"
-                        >
-                            <ChevronRightIcon className="w-6 h-6 text-gray-600" />
-                        </button>
+                        <div className="absolute inset-y-0 -left-6 -right-6 flex items-center justify-between pointer-events-none opacity-0 group-hover/carousel:opacity-100 transition-opacity">
+                            <button
+                                onClick={() => setCurrentSlide((prev) => (prev === 0 ? services.length - 1 : prev - 1))}
+                                className="w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center pointer-events-auto hover:bg-primary-600 hover:text-white transition-all scale-90 hover:scale-110 border border-gray-100"
+                                aria-label="Previous slide"
+                            >
+                                <ChevronLeft className="w-6 h-6" />
+                            </button>
+                            <button
+                                onClick={() => setCurrentSlide((prev) => (prev === services.length - 1 ? 0 : prev + 1))}
+                                className="w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center pointer-events-auto hover:bg-primary-600 hover:text-white transition-all scale-90 hover:scale-110 border border-gray-100"
+                                aria-label="Next slide"
+                            >
+                                <ChevronRight className="w-6 h-6" />
+                            </button>
+                        </div>
 
                         {/* Dots Indicator */}
-                        <div className="flex justify-center mt-8 space-x-2">
+                        <div className="flex justify-center mt-12 space-x-3">
                             {services.map((_, index) => (
                                 <button
                                     key={index}
                                     onClick={() => setCurrentSlide(index)}
-                                    className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? 'bg-primary-600' : 'bg-gray-300'
+                                    className={`h-2 rounded-full transition-all duration-500 ${index === currentSlide ? 'w-8 bg-primary-600' : 'w-2 bg-gray-300 hover:bg-gray-400'
                                         }`}
                                     aria-label={`Go to service ${index + 1}`}
                                 />
@@ -400,19 +413,29 @@ export default function HomePage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 px-4 bg-primary-600">
-                <div className="max-w-4xl mx-auto text-center text-white">
-                    <h2 className="text-4xl font-bold mb-6">
+            <section className="relative py-24 px-4 overflow-hidden bg-gray-900">
+                <div className="absolute inset-0">
+                    <Image
+                        src="/images/destinations/istanbul.jpg"
+                        alt="CTA Background"
+                        fill
+                        className="object-cover opacity-60"
+                        unoptimized
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80" />
+                </div>
+                <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
+                    <h2 className="text-4xl md:text-6xl font-bold mb-8 font-serif leading-tight">
                         {t('HomePage.ctaTitle')}
                     </h2>
-                    <p className="text-xl mb-8 opacity-90">
+                    <p className="text-xl md:text-2xl mb-12 opacity-90 font-light leading-relaxed">
                         {t('HomePage.ctaSubtitle')}
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                        <button className="bg-primary-600 hover:bg-primary-700 text-white px-10 py-4 rounded-full font-bold transition-all hover:scale-105 shadow-2xl">
                             {t('Common.bookNow')}
                         </button>
-                        <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors">
+                        <button className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-black transition-all hover:scale-105 shadow-2xl">
                             {t('Common.contactUs')}
                         </button>
                     </div>

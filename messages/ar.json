@@ -113,6 +113,27 @@
         "similarHotels": "فنادق مماثلة",
         "similarHotelsComingSoon": "فنادق مماثلة قريبا..."
     },
+    "HotelsPage": {
+        "title": "فنادق فاخرة في تركيا",
+        "description": "اكتشف أماكن إقامة استثنائية وضيافة عالمية المستوى في أجمل المدن التركية.",
+        "exploreAll": "استكشف جميع الفنادق",
+        "specialOffers": "عروض خاصة",
+        "popularDestinations": "وجهات شعبية",
+        "popularDestinationsDesc": "اختر من بين فنادقنا الفاخرة المختارة بعناية في أشهر المواقع في تركيا.",
+        "hotelsCount": "فنادق",
+        "featuredHotels": "فنادق فاخرة مميزة",
+        "featuredHotelsDesc": "فنادق بريميوم مختارة بعناية توفر راحة وخدمة استثنائية.",
+        "awardWinningService": "خدمة حائزة على جوائز",
+        "awardWinningServiceDesc": "تجربة ضيافة معترف بها وفق معايير السفر العالمية.",
+        "strategicLocations": "مواقع استراتيجية",
+        "strategicLocationsDesc": "فنادقنا تقع في مناطق متميزة لكل من العمل والترفيه.",
+        "premiumAmenities": "مرافق مميزة",
+        "premiumAmenitiesDesc": "استمتع بالسبا عالمي المستوى، والمأكولات الراقية، ومرافق اللياقة البدنية الحديثة.",
+        "ctaTitle": "اعثر على إقامتك المثالية",
+        "ctaDescription": "دع خبراء السفر لدينا يجدون الفندق المثالي لرحلتك في تركيا.",
+        "bookNow": "احجز الآن",
+        "contactUs": "اتصل بنا"
+    },
     "FlightsPage": {
         "heroTitle": "حجز تذاكر الطيران",
         "heroSubtitle": "احجز رحلات طيران محلية ودولية مع أفضل شركات الطيران",

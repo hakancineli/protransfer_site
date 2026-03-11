@@ -9,24 +9,29 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-80 bg-gradient-to-r from-quaternary-600 to-quaternary-800">
+      <section className="relative h-[60vh] md:h-[75vh] min-h-[500px] overflow-hidden bg-gray-900 group/contact">
         <div className="absolute inset-0">
           <Image
             src="/images/hero-bg.jpg"
-            alt="Contact Background"
+            alt="Contact ProTransfer Travel"
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-[10000ms] ease-linear group-hover/contact:scale-110"
             priority
+            unoptimized
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent z-20" />
+          <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-gray-900 to-transparent z-20" />
         </div>
 
-        <div className="relative z-10 flex items-center justify-center h-full">
-          <div className="text-center text-white px-4">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-serif">
+        <div className="relative z-30 flex flex-col justify-end container mx-auto px-4 pb-20 h-full">
+          <div className="max-w-4xl text-white">
+            <span className="inline-block px-4 py-1.5 bg-primary-600/80 backdrop-blur-md border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest mb-6 animate-fade-in">
+              Get In Touch
+            </span>
+            <h1 className="text-5xl md:text-8xl font-bold mb-8 font-serif leading-none tracking-tight animate-fade-in">
               {t('ContactPage.heroTitle')}
             </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+            <p className="text-xl md:text-3xl opacity-90 max-w-2xl leading-relaxed font-light animate-fade-in" style={{ animationDelay: '200ms' }}>
               {t('ContactPage.heroSubtitle')}
             </p>
           </div>

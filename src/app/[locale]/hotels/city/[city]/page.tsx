@@ -9,7 +9,7 @@ import React, { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 
 // Destination Card Component
-const DestinationCard = ({ destination, tick }: { destination: { name: string; image: string; gallery?: string[]; tours: number; rating: number }, tick: number }) => {
+const DestinationCard = ({ destination, tick, t }: { destination: { name: string; image: string; gallery?: string[]; tours: number; rating: number }, tick: number, t: any }) => {
   const [offset, setOffset] = useState(0)
   const images = destination.gallery && destination.gallery.length > 0 ? destination.gallery : [destination.image]
   const idx = images.length > 0 ? ((tick + offset) % images.length) : 0
@@ -27,39 +27,46 @@ const DestinationCard = ({ destination, tick }: { destination: { name: string; i
     if (!isMobile) return
     const id = setInterval(() => {
       setOffset((v) => (v + 1) % images.length)
-    }, 3500)
+    }, 4000)
     return () => clearInterval(id)
   }, [images.length])
 
   return (
     <Link href={`/hotels/city/${destination.name.toLowerCase()}`} className="card group cursor-pointer">
       <div className="relative h-[28rem] overflow-hidden">
-        <Image
-          key={images[idx]}
-          src={images[idx]}
-          alt={destination.name}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          onError={handleError}
-          priority
-          unoptimized
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        <div className="absolute bottom-4 left-4 text-white">
+        {images.map((img, i) => (
+          <div
+            key={img}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+          >
+            <Image
+              src={img}
+              alt={destination.name}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              onError={i === idx ? handleError : undefined}
+              priority={i === 0}
+              unoptimized
+            />
+          </div>
+        ))}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-20" />
+        <div className="absolute bottom-4 left-4 text-white z-20">
           <h3 className="text-2xl font-bold mb-2">{destination.name}</h3>
           <div className="flex items-center gap-4 text-sm">
             <div className="flex items-center gap-1">
               <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
               <span>{destination.rating}</span>
             </div>
-            <span>{destination.tours} Hotels</span>
+            <span>{destination.tours} {t('hotelsCount')}</span>
           </div>
         </div>
         {images.length > 1 && (
-          <div className="absolute right-3 bottom-3 flex gap-1">
+          <div className="absolute right-3 bottom-0 left-0 p-3 flex gap-1 z-20">
             {images.map((_, i) => (
-              <span key={i} className={`w-2 h-2 rounded-full ${i === idx ? 'bg-white' : 'bg-white/50'}`} />
+              <span key={i} className={`h-1 flex-1 rounded-full transition-all duration-500 ${i === idx ? 'bg-white' : 'bg-white/30'}`} />
             ))}
           </div>
         )}
@@ -111,7 +118,7 @@ const popularDestinations = [
   },
   {
     name: 'Bursa',
-    image: '/images/destinations/cappadocia.jpg',
+    image: '/images/destinations/bursa.jpg',
     gallery: [
       '/images/destinations/Bursa/bursa-1.jpg',
       '/images/destinations/Bursa/bursa-2.jpg',
@@ -1639,15 +1646,44 @@ export default function CityHotelsPage() {
 
   const cityName = cityNames[city as keyof typeof cityNames] || city
 
+  const cityHeroImages: Record<string, string> = {
+    istanbul: '/images/destinations/istanbul.jpg',
+    trabzon: '/images/destinations/trabzon.jpg',
+    antalya: '/images/destinations/antalya.jpg',
+    bursa: '/images/destinations/bursa.jpg',
+    bodrum: '/images/destinations/bodrum.jpg',
+    cappadocia: '/images/destinations/cappadocia.jpg',
+    pamukkale: '/images/destinations/pamukkale.jpg',
+    fethiye: '/images/destinations/fethiye.jpg'
+  }
+
+  const normalizedCity = city?.toLowerCase() || ''
+  const displayCityName = cityNames[normalizedCity as keyof typeof cityNames] || city
+  const heroImage = cityHeroImages[normalizedCity] || '/images/hero-bg.jpg'
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-96 md:h-[500px] overflow-hidden">
-        <div className="relative h-full bg-gradient-to-r from-primary-600 to-primary-800">
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute bottom-8 left-8 text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-2">{cityName} {t('CityHotels.hotelsIn')}</h1>
-            <p className="text-xl opacity-90">{t('CityHotels.discoverBest')} {cityName}</p>
+      <section className="relative h-[60vh] min-h-[400px] overflow-hidden bg-gray-900">
+        <div className="absolute inset-0">
+          <Image
+            src={heroImage}
+            alt={displayCityName}
+            fill
+            className="object-cover"
+            priority
+            unoptimized
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 md:to-transparent" />
+        </div>
+        <div className="relative container mx-auto px-4 h-full flex items-end pb-12 md:pb-20">
+          <div className="max-w-3xl text-white">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 font-serif">
+              {displayCityName} {t('CityHotels.hotelsIn')}
+            </h1>
+            <p className="text-xl md:text-2xl opacity-90 max-w-2xl">
+              {t('CityHotels.discoverBest')} {displayCityName}
+            </p>
           </div>
         </div>
       </section>
@@ -1664,7 +1700,7 @@ export default function CityHotelsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {popularDestinations.map((destination) => (
-              <DestinationCard key={destination.name} destination={destination} tick={destinationsTick} />
+              <DestinationCard key={destination.name} destination={destination} tick={destinationsTick} t={t} />
             ))}
           </div>
         </div>
@@ -1742,19 +1778,29 @@ export default function CityHotelsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-primary-600">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl font-bold mb-6">
+      <section className="relative py-24 px-4 overflow-hidden bg-gray-900 border-t border-white/10">
+        <div className="absolute inset-0">
+          <Image
+            src={heroImage}
+            alt={`${displayCityName} CTA`}
+            fill
+            className="object-cover opacity-60"
+            unoptimized
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80" />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 font-serif">
             {t('CityHotels.readyToBook')} {cityName}?
           </h2>
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-xl md:text-2xl mb-10 opacity-90 leading-relaxed font-light">
             {t('CityHotels.letExperts')} {cityName} {t('CityHotels.trip')}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <button className="bg-primary-600 hover:bg-primary-700 text-white px-10 py-4 rounded-full font-bold transition-all hover:scale-105 shadow-xl">
               {t('CityHotels.bookNow')}
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors">
+            <button className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-black transition-all hover:scale-105 shadow-xl">
               {t('CityHotels.contactUs')}
             </button>
           </div>

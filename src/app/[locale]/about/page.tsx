@@ -56,22 +56,28 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-80 bg-gradient-to-r from-primary-600 to-primary-800">
+      <section className="relative h-[60vh] md:h-[75vh] min-h-[500px] overflow-hidden bg-gray-900 group/about">
         <div className="absolute inset-0">
           <Image
-            src="/images/hero-bg.jpg"
+            src="/images/destinations/istanbul.jpg"
             alt="About ProTransfer"
             fill
-            className="object-cover opacity-30"
+            className="object-cover transition-transform duration-[10000ms] ease-linear group-hover/about:scale-110"
+            priority
+            unoptimized
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent z-20" />
+          <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-gray-900 to-transparent z-20" />
         </div>
-        <div className="relative z-10 h-full flex items-center justify-center text-white px-4 pt-20">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-serif">
+        <div className="relative z-30 h-full flex flex-col justify-end container mx-auto px-4 pb-20">
+          <div className="max-w-4xl text-white">
+            <span className="inline-block px-4 py-1.5 bg-primary-600/80 backdrop-blur-md border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest mb-6 animate-fade-in">
+              Our Legacy & Team
+            </span>
+            <h1 className="text-5xl md:text-8xl font-bold mb-8 font-serif leading-none tracking-tight animate-fade-in">
               {t('AboutPage.heroTitle')}
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
+            <p className="text-xl md:text-3xl opacity-90 max-w-3xl leading-relaxed font-light animate-fade-in" style={{ animationDelay: '200ms' }}>
               {t('AboutPage.heroSubtitle')}
             </p>
           </div>
@@ -297,19 +303,29 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       {/* CTA Section */}
-      <section className="bg-primary-600 py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center text-white">
-          <h2 className="text-3xl font-bold mb-6">
+      <section className="relative py-24 px-4 overflow-hidden bg-gray-900">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero-bg.jpg"
+            alt="Contact ProTransfer"
+            fill
+            className="object-cover opacity-60"
+            unoptimized
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80" />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8 font-serif leading-tight">
             {t('AboutPage.ctaTitle')}
           </h2>
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-xl md:text-2xl mb-12 opacity-90 font-light leading-relaxed">
             {t('AboutPage.ctaDescription')}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Link href="/contact" className="bg-primary-600 hover:bg-primary-700 text-white px-10 py-4 rounded-full font-bold transition-all hover:scale-105 shadow-2xl">
               {t('AboutPage.contactUs')}
             </Link>
-            <Link href="/hotels" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors">
+            <Link href="/hotels" className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-black transition-all hover:scale-105 shadow-2xl">
               {t('AboutPage.browseHotels')}
             </Link>
           </div>

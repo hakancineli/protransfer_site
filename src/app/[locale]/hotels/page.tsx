@@ -503,35 +503,36 @@ const amenities = {
 
 export default async function HotelsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  const t = await getTranslations({ locale })
+  const t = await getTranslations({ locale, namespace: 'HotelsPage' })
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-96 md:h-[500px] overflow-hidden">
+      <section className="relative h-[60vh] min-h-[450px] overflow-hidden bg-gray-900">
         <div className="absolute inset-0">
           <Image
             src="/images/destinations/istanbul.jpg"
             alt="Turkey Hotels"
             fill
             className="object-cover"
+            priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
         </div>
         <div className="relative container mx-auto px-4 h-full flex items-end pb-16">
           <div className="max-w-3xl text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              {t('HotelsPage.title')}
+            <h1 className="text-4xl md:text-7xl font-bold mb-6 font-serif">
+              {t('title')}
             </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-90">
-              {t('HotelsPage.description')}
+            <p className="text-xl md:text-2xl mb-8 opacity-90 leading-relaxed font-light">
+              {t('description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors">
-                {t('HotelsPage.exploreAll')}
+                {t('exploreAll')}
               </button>
               <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors">
-                {t('HotelsPage.specialOffers')}
+                {t('specialOffers')}
               </button>
             </div>
           </div>
@@ -542,9 +543,9 @@ export default async function HotelsPage({ params }: { params: Promise<{ locale:
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('HotelsPage.popularDestinations')}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('popularDestinations')}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t('HotelsPage.popularDestinationsDesc')}
+              {t('popularDestinationsDesc')}
             </p>
           </div>
 
@@ -563,7 +564,7 @@ export default async function HotelsPage({ params }: { params: Promise<{ locale:
                     <h3 className="text-2xl font-bold mb-2">{city.name}</h3>
                     <p className="text-sm opacity-90 mb-3">{city.description}</p>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm">{city.hotelCount} {t('HotelsPage.hotelsCount')}</span>
+                      <span className="text-sm">{city.hotelCount} {t('hotelsCount')}</span>
                       <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
@@ -578,9 +579,9 @@ export default async function HotelsPage({ params }: { params: Promise<{ locale:
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('HotelsPage.featuredHotels')}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('featuredHotels')}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t('HotelsPage.featuredHotelsDesc')}
+              {t('featuredHotelsDesc')}
             </p>
           </div>
 
@@ -653,9 +654,9 @@ export default async function HotelsPage({ params }: { params: Promise<{ locale:
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="w-8 h-8 text-primary-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{t('HotelsPage.awardWinningService')}</h3>
+              <h3 className="text-xl font-semibold mb-2">{t('awardWinningService')}</h3>
               <p className="text-gray-600">
-                {t('HotelsPage.awardWinningServiceDesc')}
+                {t('awardWinningServiceDesc')}
               </p>
             </div>
 
@@ -663,9 +664,9 @@ export default async function HotelsPage({ params }: { params: Promise<{ locale:
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin className="w-8 h-8 text-primary-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{t('HotelsPage.strategicLocations')}</h3>
+              <h3 className="text-xl font-semibold mb-2">{t('strategicLocations')}</h3>
               <p className="text-gray-600">
-                {t('HotelsPage.strategicLocationsDesc')}
+                {t('strategicLocationsDesc')}
               </p>
             </div>
 
@@ -683,20 +684,30 @@ export default async function HotelsPage({ params }: { params: Promise<{ locale:
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-primary-600">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl font-bold mb-6">
-            {t('HotelsPage.ctaTitle')}
+      <section className="relative py-24 px-4 overflow-hidden bg-gray-900 border-t border-white/10">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/destinations/istanbul.jpg"
+            alt="Hotels CTA"
+            fill
+            className="object-cover opacity-60"
+            unoptimized
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80" />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 font-serif">
+            {t('ctaTitle')}
           </h2>
-          <p className="text-xl mb-8 opacity-90">
-            {t('HotelsPage.ctaDescription')}
+          <p className="text-xl md:text-2xl mb-10 opacity-90 leading-relaxed font-light">
+            {t('ctaDescription')}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-              {t('HotelsPage.bookNow')}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <button className="bg-primary-600 hover:bg-primary-700 text-white px-10 py-4 rounded-full font-bold transition-all hover:scale-105 shadow-xl">
+              {t('bookNow')}
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors">
-              {t('HotelsPage.contactUs')}
+            <button className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-black transition-all hover:scale-105 shadow-xl">
+              {t('contactUs')}
             </button>
           </div>
         </div>

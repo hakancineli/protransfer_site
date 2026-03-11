@@ -1,8 +1,11 @@
+'use client'
+
 import { MapPin, Star, Calendar, Users, Wifi, Car, Coffee, Dumbbell, Check, Phone, Mail, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import React from 'react'
-import { getTranslations } from 'next-intl/server'
+import React, { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
+import { useParams } from 'next/navigation'
 
 import { hotelsData } from '@/data/hotels'
 
@@ -24,27 +27,22 @@ const amenityIcons = {
 // Global contact phone to display on all hotel detail pages
 const GLOBAL_CONTACT_PHONE = '+90 554 581 20 34'
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string; locale: string }> }) {
-  const { id } = await params;
-  const hotel = hotelsData[id as unknown as keyof typeof hotelsData];
-
-  if (!hotel) return { title: 'Hotel Not Found' };
-
-  return {
-    title: `${hotel.name} - Luxury Hotel in ${hotel.location} | ProTransfer`,
-    description: hotel.description,
-    openGraph: {
-      title: hotel.name,
-      description: hotel.description,
-      images: [hotel.image],
-    },
-  };
-}
-
-export default async function HotelDetailPage({ params }: { params: Promise<{ id: string; locale: string }> }) {
-  const { id, locale } = await params
-  const t = await getTranslations({ locale })
+export default function HotelDetailPage() {
+  const params = useParams()
+  const id = params.id as string
+  const locale = params.locale as string
+  const t = useTranslations()
   const hotel = hotelsData[id as unknown as keyof typeof hotelsData]
+  const [currentIdx, setCurrentIdx] = useState(0)
+
+  // Automated slideshow for the hero section
+  useEffect(() => {
+    if (!hotel || !hotel.gallery || hotel.gallery.length <= 1) return
+    const interval = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % hotel.gallery.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [hotel])
 
   if (!hotel) {
     return (
@@ -60,34 +58,100 @@ export default async function HotelDetailPage({ params }: { params: Promise<{ id
     )
   }
 
+  const gallery = hotel.gallery && hotel.gallery.length > 0 ? hotel.gallery : [hotel.image]
+
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section with Gallery */}
-      <section className="relative h-96 md:h-[500px] overflow-hidden">
-        <div className="relative h-full">
-          <Image
-            src={hotel.image}
-            alt={hotel.name}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <div className="absolute bottom-8 left-8 text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-2">{hotel.name}</h1>
-            <div className="flex items-center gap-4 text-lg">
-              <div className="flex items-center gap-1">
-                <MapPin className="w-5 h-5" />
-                <span>{hotel.location}</span>
+      {/* Hero Section with Automated Gallery Slideshow */}
+      <section className="relative h-[60vh] md:h-[80vh] min-h-[500px] overflow-hidden bg-black group/hero">
+        <div className="absolute inset-0">
+          {gallery.map((img, i) => (
+            <div
+              key={`${img}-${i}`}
+              className={`absolute inset-0 transition-all duration-[2000ms] ease-out ${i === currentIdx ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-110 z-0'
+                }`}
+            >
+              <Image
+                src={img}
+                alt={`${hotel.name} - View ${i + 1}`}
+                fill
+                className="object-cover"
+                priority={i === 0}
+                unoptimized
+              />
+            </div>
+          ))}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-20" />
+        </div>
+
+        {/* Navigation Buttons */}
+        <div className="absolute inset-0 z-30 flex items-center justify-between px-4 md:px-8 opacity-0 group-hover/hero:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <button
+            onClick={() => setCurrentIdx((prev) => (prev === 0 ? gallery.length - 1 : prev - 1))}
+            className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all pointer-events-auto"
+            aria-label="Previous image"
+          >
+            <ChevronRight className="w-6 h-6 rotate-180" />
+          </button>
+          <button
+            onClick={() => setCurrentIdx((prev) => (prev === gallery.length - 1 ? 0 : prev + 1))}
+            className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all pointer-events-auto"
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
+
+        <div className="relative z-30 container mx-auto px-4 h-full flex items-end pb-16">
+          <div className="max-w-4xl text-white">
+            <div className="flex flex-wrap gap-2 mb-6 animate-fade-in" style={{ animationDelay: '200ms' }}>
+              {hotel.amenities.slice(0, 4).map((amenity) => (
+                <span key={amenity} className="px-4 py-1.5 bg-primary-600/80 backdrop-blur-md border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
+                  {t(`HotelDetail.amenityItems.${amenity}`)}
+                </span>
+              ))}
+            </div>
+            <h1 className="text-5xl md:text-8xl font-bold mb-6 font-serif leading-none tracking-tight animate-fade-in" style={{ animationDelay: '400ms' }}>
+              {hotel.name}
+            </h1>
+            <div className="flex flex-wrap items-center gap-8 text-xl animate-fade-in" style={{ animationDelay: '600ms' }}>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary-600/20 flex items-center justify-center backdrop-blur-sm border border-white/20">
+                  <MapPin className="w-5 h-5 text-primary-400" />
+                </div>
+                <span className="font-light opacity-90">{hotel.location}</span>
               </div>
-              <div className="flex items-center gap-1">
-                <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                <span>{hotel.rating}</span>
-                <span className="text-gray-300">({hotel.reviews} {t('HotelDetail.reviews')})</span>
+              <div className="flex items-center gap-3">
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className={`w-6 h-6 ${i < Math.floor(hotel.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-white/20'}`} />
+                  ))}
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-bold leading-none">{hotel.rating}</span>
+                  <span className="text-sm opacity-60 uppercase tracking-tighter">{hotel.reviews} {t('HotelDetail.reviews')}</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Slideshow Progress Indicators */}
+        {gallery.length > 1 && (
+          <div className="absolute bottom-0 left-0 right-0 h-1.5 flex z-40">
+            {gallery.map((_, i) => (
+              <div
+                key={i}
+                className="flex-1 h-full bg-white/10 overflow-hidden border-r border-black/10 last:border-0"
+              >
+                <div
+                  className={`h-full bg-white transition-all duration-[5000ms] linear ${i === currentIdx ? 'w-full' : 'w-0'
+                    }`}
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Hotel Information */}

@@ -113,6 +113,27 @@
         "similarHotels": "Benzer Oteller",
         "similarHotelsComingSoon": "Benzer oteller yakında..."
     },
+    "HotelsPage": {
+        "title": "Türkiye'deki Lüks Oteller",
+        "description": "Türkiye'nin en güzel şehirlerinde olağanüstü konaklama ve dünya standartlarında misafirperverliği keşfedin.",
+        "exploreAll": "Tüm Otelleri Keşfet",
+        "specialOffers": "Özel Teklifler",
+        "popularDestinations": "Popüler Destinasyonlar",
+        "popularDestinationsDesc": "Türkiye'nin en ikonik yerlerindeki özenle seçilmiş lüks otellerimiz arasından seçim yapın.",
+        "hotelsCount": "Otel",
+        "featuredHotels": "Öne Çıkan Lüks Oteller",
+        "featuredHotelsDesc": "Üstün konfor ve hizmet sunan, özenle seçilmiş premium oteller.",
+        "awardWinningService": "Ödüllü Hizmet",
+        "awardWinningServiceDesc": "Küresel seyahat standartlarınca tanınan misafirperverliği deneyimleyin.",
+        "strategicLocations": "Stratejik Konumlar",
+        "strategicLocationsDesc": "Otellerimiz hem iş hem de tatil için en iyi bölgelerde yer almaktadır.",
+        "premiumAmenities": "Premium Olanaklar",
+        "premiumAmenitiesDesc": "Dünya standartlarında spa, seçkin yemekler ve modern fitness tesislerinin keyfini çıkarın.",
+        "ctaTitle": "Mükemmel Konaklamanızı Bulun",
+        "ctaDescription": "Seyahat uzmanlarımızın Türkiye seyahatiniz için ideal oteli bulmasına izin verin.",
+        "bookNow": "Hemen Rezerve Et",
+        "contactUs": "Bize Ulaşın"
+    },
     "FlightsPage": {
         "heroTitle": "Uçak Bileti Rezervasyonu",
         "heroSubtitle": "En iyi havayolları ile yurt içi ve yurt dışı uçuş rezervasyonu yapın",

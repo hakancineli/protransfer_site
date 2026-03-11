@@ -45,7 +45,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'
+      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md py-2 border-b border-gray-100' : 'bg-transparent py-4'
         }`}
     >
       {/* Top Bar - Hidden on Mobile */}

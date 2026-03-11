@@ -6,7 +6,7 @@ import { getTranslations } from 'next-intl/server'
 
 export default async function ToursPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  const t = await getTranslations({ locale })
+  const t = await getTranslations({ locale, namespace: 'ToursPage' })
   const tours = [
     {
       id: 1,
@@ -101,40 +101,44 @@ export default async function ToursPage({ params }: { params: Promise<{ locale: 
   ]
 
   const categories = [
-    { value: 'all', label: t('ToursPage.allCategories'), icon: Plane },
-    { value: 'cultural', label: t('ToursPage.categoryCultural'), icon: Camera },
-    { value: 'adventure', label: t('ToursPage.categoryAdventure'), icon: Mountain },
-    { value: 'cruise', label: t('ToursPage.categoryCruise'), icon: Ship },
-    { value: 'nature', label: t('ToursPage.categoryNature'), icon: Mountain },
+    { value: 'all', label: t('allCategories'), icon: Plane },
+    { value: 'cultural', label: t('categoryCultural'), icon: Camera },
+    { value: 'adventure', label: t('categoryAdventure'), icon: Mountain },
+    { value: 'cruise', label: t('categoryCruise'), icon: Ship },
+    { value: 'nature', label: t('categoryNature'), icon: Mountain },
   ]
 
   const difficulties = [
-    { value: 'all', label: t('ToursPage.allLevels') },
-    { value: 'easy', label: t('ToursPage.difficultyEasy') },
-    { value: 'moderate', label: t('ToursPage.difficultyModerate') },
-    { value: 'challenging', label: t('ToursPage.difficultyChallenging') },
+    { value: 'all', label: t('allLevels') },
+    { value: 'easy', label: t('difficultyEasy') },
+    { value: 'moderate', label: t('difficultyModerate') },
+    { value: 'challenging', label: t('difficultyChallenging') },
   ]
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-80 bg-gradient-to-r from-secondary-600 to-secondary-800">
+      <section className="relative h-[60vh] md:h-[75vh] min-h-[500px] overflow-hidden bg-gray-900 group/tours">
         <div className="absolute inset-0">
           <Image
-            src="/images/hero-bg.jpg"
-            alt="Tours Background"
+            src="/images/destinations/istanbul.jpg"
+            alt="Luxury Tours in Turkey"
             fill
-            className="object-cover opacity-30"
+            className="object-cover transition-transform duration-[10000ms] ease-linear group-hover/tours:scale-110"
+            priority
+            unoptimized
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent z-20" />
+          <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-gray-900 to-transparent z-20" />
         </div>
-        <div className="relative z-10 h-full flex items-end justify-center text-center text-white px-4 pb-8">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 font-serif">
-              {t('ToursPage.heroTitle')}
+        <div className="relative z-30 h-full flex flex-col justify-end container mx-auto px-4 pb-20">
+          <div className="max-w-4xl text-white">
+            <span className="inline-block px-4 py-1.5 bg-primary-600/80 backdrop-blur-md border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest mb-6 animate-fade-in">
+              {t('heroSubtitle')}
+            </span>
+            <h1 className="text-5xl md:text-8xl font-bold mb-8 font-serif leading-none tracking-tight animate-fade-in" style={{ animationDelay: '200ms' }}>
+              {t('heroTitle')}
             </h1>
-            <p className="text-xl max-w-2xl mx-auto opacity-90">
-              {t('ToursPage.heroSubtitle')}
-            </p>
           </div>
         </div>
       </section>
@@ -147,13 +151,13 @@ export default async function ToursPage({ params }: { params: Promise<{ locale: 
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
-                placeholder={t('ToursPage.searchPlaceholder')}
+                placeholder={t('searchPlaceholder')}
                 className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-transparent"
               />
             </div>
 
             <select className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-transparent appearance-none" title="Tour Destination">
-              <option>{t('ToursPage.allDestinations')}</option>
+              <option>{t('allDestinations')}</option>
               <option>Istanbul</option>
               <option>Cappadocia</option>
               <option>Izmir</option>
@@ -179,7 +183,7 @@ export default async function ToursPage({ params }: { params: Promise<{ locale: 
 
             <button className="btn-secondary flex items-center justify-center gap-2">
               <Search className="w-5 h-5" />
-              {t('ToursPage.searchButton')}
+              {t('searchButton')}
             </button>
           </div>
         </div>
@@ -189,11 +193,11 @@ export default async function ToursPage({ params }: { params: Promise<{ locale: 
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
           <p className="text-gray-600">
-            {t('ToursPage.resultsCount', { count: tours.length })}
+            {t('resultsCount', { count: tours.length })}
           </p>
           <div className="flex items-center gap-4">
-            <button className="text-gray-600 hover:text-gray-900">{t('ToursPage.sortPopular')}</button>
-            <button className="text-gray-600 hover:text-gray-900">{t('ToursPage.sortPriceLowHigh')}</button>
+            <button className="text-gray-600 hover:text-gray-900">{t('sortPopular')}</button>
+            <button className="text-gray-600 hover:text-gray-900">{t('sortPriceLowHigh')}</button>
           </div>
         </div>
       </div>
@@ -266,7 +270,7 @@ export default async function ToursPage({ params }: { params: Promise<{ locale: 
                     href={`/tours/${tour.id}`}
                     className="btn-secondary text-sm px-4 py-2 flex items-center gap-1"
                   >
-                    {t('ToursPage.viewDetails')}
+                    {t('viewDetails')}
                     <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -277,20 +281,30 @@ export default async function ToursPage({ params }: { params: Promise<{ locale: 
       </div>
 
       {/* CTA Section */}
-      <section className="bg-secondary-600 py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center text-white">
-          <h2 className="text-3xl font-bold mb-6">
-            {t('ToursPage.ctaTitle')}
+      <section className="relative py-24 px-4 overflow-hidden bg-gray-900">
+        <div className="absolute inset-0">
+          <Image
+            src="/tours/Cappadocia Hot Air Balloon/Cappadocia Hot Air Balloon.jpeg"
+            alt="Custom Tours CTA"
+            fill
+            className="object-cover opacity-60"
+            unoptimized
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80" />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8 font-serif leading-tight">
+            {t('ctaTitle')}
           </h2>
-          <p className="text-xl mb-8 opacity-90">
-            {t('ToursPage.ctaDescription')}
+          <p className="text-xl md:text-2xl mb-12 opacity-90 font-light leading-relaxed">
+            {t('ctaDescription')}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-secondary-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-              {t('ToursPage.ctaCustomTour')}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <button className="bg-primary-600 hover:bg-primary-700 text-white px-10 py-4 rounded-full font-bold transition-all hover:scale-105 shadow-2xl">
+              {t('ctaCustomTour')}
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-secondary-600 transition-colors">
-              {t('ToursPage.ctaContactExpert')}
+            <button className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-black transition-all hover:scale-105 shadow-2xl">
+              {t('ctaContactExpert')}
             </button>
           </div>
         </div>
